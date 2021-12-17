@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>login</title>
+  <link rel="stylesheet" href="login.css">
+  <script src="login.js"></script>
+</head>
+<body>
+<section>
+  <!-- 背景颜色 -->
+  <div class="color"></div>
+  <div class="color"></div>
+  <div class="color"></div>
+  <img id="logo" src="logo.png" alt="logo">
+  <!-- 轮播图 -->
+  <div class="box">
+    <div class="container">
+      <img id="pic0" src="0.png" alt="">
+      <img id="pic1" src="1.png" alt="" hidden>
+      <img id="pic2" src="2.png" alt="" hidden>
+      <img id="pic3" src="3.png" alt="" hidden>
+      <img id="pic4" src="4.png" alt="" hidden>
+      <script>
+        let index = 0;
+        let pic = document.getElementById("pic"+index);
+        setInterval(function(){
+          pic.setAttribute("hidden","true");
+          index++;
+          pic = document.getElementById("pic"+index);
+          pic.removeAttribute("hidden");
+          if (index === 4) {
+            index = 0;
+          }
+        },3000);
+      </script>
+    </div>
+  </div>
+
+  <!-- 登录框 -->
+  <div class="box">
+    <div class="container">
+      <div class="form">
+        <h2 onclick="f1()">密码登录&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+        <h2 onclick="f2()">手机登录</h2>
+        <form method="get" action="">
+          <div class="inputBox">
+            <label>
+              <input type="text" id="username" name="username" placeholder="用户名" autocomplete="off" maxlength="20">
+            </label>
+          </div>
+          <div class="inputBox">
+            <label>
+              <input type="text" id="phoneNumber" name="phoneNumber" autocomplete="off" placeholder="手机号" maxlength="11" hidden>
+            </label>
+          </div>
+
+          <div class="inputBox">
+            <label>
+              <input type="text" id="code" name="code" autocomplete="off" placeholder="验证码" maxlength="6" hidden>
+            </label>
+          </div>
+
+          <div class="inputBox">
+            <label>
+              <input type="password" id="password" name="password" autocomplete="off" placeholder="密码" maxlength="20">
+            </label>
+          </div>
+
+          <div class="inputBox">
+            <label>
+              <input type="password" id="newPassword" name="newPassword" autocomplete="off" placeholder="新密码" maxlength="20" hidden>
+            </label>
+          </div>
+
+          <div class="inputBox" style="text-align:center">
+            <input id="login" type="submit" value="登录" name="login" onclick="checkLogin()">
+            <input id="login2" type="submit" value="登录" name="login2" onclick="checkLogin2()" hidden>
+            <input id="register" type="submit" value="注册用户" name="register" onclick="checkReg()" hidden>
+            <input id="modify" type="submit" value="修改密码" name="modify" onclick="checkMod()" hidden>
+            <input id="reset" type="submit" value="重置密码" name="reset" onclick="checkRe()" hidden>
+            <input id="send" type="submit" value="发送验证码" name="send" onclick="checkSend();" hidden>
+          </div>
+
+        </form>
+        <p class="forget"><a href="javascript:void(0)" onclick="f3()">注册账号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+          <a href="javascript:void(0)" onclick="f4()">修改密码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+          <a href="javascript:void(0)" onclick="f5()">忘记密码</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+</html>
